@@ -5,7 +5,7 @@ credentials from the environment. A modern, actively maintained replacement for 
 [`docker-credential-acr-env`](https://github.com/chrismellard/docker-credential-acr-env)
 and Azure's own
 [`acr-docker-credential-helper`](https://github.com/Azure/acr-docker-credential-helper),
-both of which are now unmaintained and archived. Built on the current Azure SDK
+both of which are now unmaintained or archived. Built on the current Azure SDK
 (`azidentity` / `azcontainerregistry`) instead of the deprecated `go-autorest` stack.
 
 ## Features
