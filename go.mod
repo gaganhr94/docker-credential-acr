@@ -1,6 +1,6 @@
 module github.com/gaganhr94/docker-credential-acr
 
-go 1.26.1
+go 1.25.7
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.21.0
