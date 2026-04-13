@@ -1,10 +1,12 @@
 # docker-credential-acr-env
 
 A Docker credential helper for Azure Container Registry (ACR) that sources
-credentials from the environment. A modern replacement for
+credentials from the environment. A modern, actively maintained replacement for both
 [`docker-credential-acr-env`](https://github.com/chrismellard/docker-credential-acr-env)
-built on the current Azure SDK (`azidentity` / `azcontainerregistry`) instead of the
-deprecated `go-autorest` stack.
+and Azure's own
+[`acr-docker-credential-helper`](https://github.com/Azure/acr-docker-credential-helper),
+both of which are now unmaintained and archived. Built on the current Azure SDK
+(`azidentity` / `azcontainerregistry`) instead of the deprecated `go-autorest` stack.
 
 ## Features
 
@@ -12,7 +14,7 @@ deprecated `go-autorest` stack.
 - **go-containerregistry keychain** — drop-in `authn.Keychain` for Go programs (cosign, crane, ko, etc.)
 - **Modern Azure SDK** — uses `azidentity.DefaultAzureCredential` which automatically discovers credentials
 - **All Azure auth methods** — service principal, workload identity, managed identity, Azure CLI, and more
-- **Multi-cloud ACR support** — `azurecr.io`, `azurecr.cn`, `azurecr.de`, `azurecr.us`, and `mcr.microsoft.com`
+- **ACR registry detection** — recognises `azurecr.io` and `mcr.microsoft.com` endpoints
 
 ## Installation
 
@@ -109,15 +111,9 @@ which tries the following methods in order:
 | Azure CLI | (uses `az login` session) |
 | Azure Developer CLI | (uses `azd auth login` session) |
 
-## Supported Registries
+## Contributing
 
-| Domain | Cloud |
-|---|---|
-| `*.azurecr.io` | Azure Public |
-| `*.azurecr.cn` | Azure China |
-| `*.azurecr.de` | Azure Germany |
-| `*.azurecr.us` | Azure US Government |
-| `mcr.microsoft.com` | Microsoft Container Registry |
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
 
 ## License
 
