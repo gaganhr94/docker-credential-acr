@@ -1,4 +1,4 @@
-# docker-credential-acr-env
+# docker-credential-acr
 
 A Docker credential helper for Azure Container Registry (ACR) that sources
 credentials from the environment. A modern, actively maintained replacement for both
