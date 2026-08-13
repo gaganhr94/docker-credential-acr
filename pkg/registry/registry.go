@@ -25,7 +25,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
 )
 
-var acrRE = regexp.MustCompile(`.*\.azurecr\.io|.*\.azurecr\.cn|.*\.azurecr\.de|.*\.azurecr\.us`)
+var acrRE = regexp.MustCompile(`^.*\.azurecr\.io$|^.*\.azurecr\.cn$|^.*\.azurecr\.de$|^.*\.azurecr\.us$`)
 
 const mcrHostname = "mcr.microsoft.com"
 

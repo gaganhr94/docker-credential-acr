@@ -29,9 +29,13 @@ func TestIsACRRegistry(t *testing.T) {
 		{name: "azurecr.us", serverURL: "myregistry.azurecr.us", want: true},
 		{name: "mcr", serverURL: "mcr.microsoft.com", want: true},
 		{name: "nested subdomain", serverURL: "my.nested.registry.azurecr.io", want: true},
+		{name: "dedicated data endpoint", serverURL: "myregistry.westeurope.data.azurecr.io", want: true},
 
 		// Negative cases
 		{name: "azurecr.me", serverURL: "myregistry.azurecr.me", want: false},
+		{name: "lookalike suffix", serverURL: "evil.azurecr.io.attacker.com", want: false},
+		{name: "lookalike suffix nested", serverURL: "myregistry.azurecr.io.example.org", want: false},
+		{name: "apex only", serverURL: "azurecr.io", want: false},
 		{name: "docker hub", serverURL: "index.docker.io", want: false},
 		{name: "gcr", serverURL: "gcr.io", want: false},
 		{name: "ecr", serverURL: "123456789.dkr.ecr.us-east-1.amazonaws.com", want: false},
