@@ -43,6 +43,9 @@ func IsACRRegistry(serverURL string) bool {
 	if err != nil {
 		return false
 	}
+	if sURL.Host != serverURL {
+		return false
+	}
 	host := sURL.Hostname()
 	if host == "" {
 		return false

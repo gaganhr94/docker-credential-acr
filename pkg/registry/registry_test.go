@@ -43,6 +43,14 @@ func TestIsACRRegistry(t *testing.T) {
 		{name: "localhost with port", serverURL: "localhost:5000", want: false},
 		{name: "ip address", serverURL: "192.168.1.1", want: false},
 		{name: "empty", serverURL: "", want: false},
+		{name: "ipv6 zone", serverURL: "[::1%25.azurecr.io]", want: false},
+		{name: "ipv6 zone with port", serverURL: "[2001:db8::1%25x.azurecr.io]:443", want: false},
+		{name: "percent-encoded", serverURL: "foo%C3%A9.azurecr.io", want: false},
+		{name: "userinfo", serverURL: "user@myregistry.azurecr.io", want: false},
+		{name: "path", serverURL: "myregistry.azurecr.io/path", want: false},
+		{name: "query", serverURL: "myregistry.azurecr.io?q", want: false},
+		{name: "fragment", serverURL: "myregistry.azurecr.io#f", want: false},
+		{name: "with port", serverURL: "myregistry.azurecr.io:443", want: true},
 	}
 
 	for _, tt := range tests {
